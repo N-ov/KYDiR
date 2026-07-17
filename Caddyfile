@@ -1,0 +1,7 @@
+# DOMAIN берётся из .env:
+#   DOMAIN=budget.example.com  -> автоматический HTTPS (Let's Encrypt)
+#   DOMAIN=:80                 -> просто HTTP по IP, без сертификата
+{$DOMAIN} {
+	encode gzip
+	reverse_proxy app:8000
+}
